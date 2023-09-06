@@ -56,8 +56,8 @@
 								<td>{{ $amount->fee_category_id }}</td>
 								
 								<td>
-                                    <a href="{{ route('edit.fee.category',$amount->id) }}" class="btn btn-info">Edit</a>
-                                    <a href="{{ route('delete.fee.category',$amount->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                    <a href="{{ route('edit.fee.amount',$amount->id) }}" class="btn btn-info">Edit</a>
+                                    <a href="{{ route('delete.fee.amount',$amount->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                 </td>
 								
 							</tr> 
