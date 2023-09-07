@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
 
-<script src="{{ asset('backend/others//jq.js') }}"></script>
+<script src="{{ asset('backend/others/jq.js') }}"></script>
 
      <div class="content-wrapper">
 	  <div class="container-full">

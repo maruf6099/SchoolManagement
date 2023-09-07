@@ -9,4 +9,8 @@ class FeeCategoryAmount extends Model
 {
     use HasFactory;
     protected $guarded=[];
+     
+    public function fee_category(){
+        return $this->belongsTo(FeeCategory::class,'fee_category_id','id');
+    }
 }

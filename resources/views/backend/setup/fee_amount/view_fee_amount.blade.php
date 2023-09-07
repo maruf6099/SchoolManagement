@@ -53,11 +53,11 @@
 							<tr>
 								<td>{{ $key+1 }}</td>
 								
-								<td>{{ $amount->fee_category_id }}</td>
+								<td>{{ $amount['fee_category']['name'] }}</td>
 								
 								<td>
-                                    <a href="{{ route('edit.fee.amount',$amount->id) }}" class="btn btn-info">Edit</a>
-                                    <a href="{{ route('delete.fee.amount',$amount->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                    <a href="{{ route('fee.amount.edit',$amount->fee_category_id) }}" class="btn btn-info">Edit</a>
+                                    <a href="{{ route('fee.amount.add',$amount->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                 </td>
 								
 							</tr> 
