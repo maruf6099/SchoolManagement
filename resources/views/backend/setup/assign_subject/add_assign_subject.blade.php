@@ -118,7 +118,7 @@
       <div class="form-group">
 		<h5>Full Mark <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="full_mark[]" class="form-control" > 
+	 <input type="text" name="full_mark[]" required="" class="form-control" > 
 	  </div>		 
 	</div>
      	</div><!-- End col-md-5 -->
@@ -127,7 +127,7 @@
       <div class="form-group">
 		<h5>Pass Mark <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="pass_mark[]" class="form-control" > 
+	 <input type="text" name="pass_mark[]" required="" class="form-control" > 
 	  </div>		 
 	</div>
      	</div><!-- End col-md-5 -->
@@ -136,7 +136,7 @@
       <div class="form-group">
 		<h5>Subjective Mark <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="subjective_mark[]" class="form-control" > 
+	 <input type="text" name="subjective_mark[]" required="" class="form-control" > 
 	  </div>		 
 	</div>
      	</div><!-- End col-md-5 --><div class="col-md-2" style="padding-top: 25px;">
@@ -244,7 +244,7 @@
       <div class="form-group">
 		<h5>Full Mark <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="full_mark[]" class="form-control" > 
+	 <input type="text" name="full_mark[]" required="" class="form-control" > 
 	  </div>		 
 	</div>
      	</div><!-- End col-md-5 -->
@@ -253,7 +253,7 @@
       <div class="form-group">
 		<h5>Pass Mark <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="pass_mark[]" class="form-control" > 
+	 <input type="text" name="pass_mark[]" required="" class="form-control" > 
 	  </div>		 
 	</div>
      	</div><!-- End col-md-5 -->
@@ -262,7 +262,7 @@
       <div class="form-group">
 		<h5>Subjective Mark <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="subjective_mark[]" class="form-control" > 
+	 <input type="text" name="subjective_mark[]" required="" class="form-control" > 
 	  </div>		 
 	</div>
      	</div>
