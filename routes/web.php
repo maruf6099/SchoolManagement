@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
+use App\Http\Controllers\Backend\Student\StudentRegController;
 use App\Http\Controllers\Backend\UserController;
 
 use Illuminate\Support\Facades\Route;
@@ -150,4 +151,13 @@ Route::prefix('setup')->group(function(){
     Route::get('/designation/edit/{id}',[DesignationController::class,'EditDesignation'])->name('designation.edit');
     Route::post('/designation/update/{id}',[DesignationController::class,'UpdateDesignation'])->name('designation.update');
     Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesignation'])->name('designation.delete');
+});
+
+//Student All Route
+
+Route::prefix('students')->group(function(){
+    Route::get('/registration/view',[StudentRegController::class,'ProfileView'])->name('student.registration.view');
+   
+    
+   
 });
