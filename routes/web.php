@@ -153,10 +153,12 @@ Route::prefix('setup')->group(function(){
     Route::get('/designation/delete/{id}',[DesignationController::class,'DeleteDesignation'])->name('designation.delete');
 });
 
-//Student All Route
+//Student Registration Route
 
 Route::prefix('students')->group(function(){
-    Route::get('/registration/view',[StudentRegController::class,'ProfileView'])->name('student.registration.view');
+    Route::get('/registration/view',[StudentRegController::class,'StudentRegView'])->name('student.registration.view');
+    Route::get('/registration/add',[StudentRegController::class,'StudentRegAdd'])->name('student.registration.add');
+    Route::post('/registration/store',[StudentRegController::class,'StudentRegStore'])->name('student.registration.store');
    
     
    

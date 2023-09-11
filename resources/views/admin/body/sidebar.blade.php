@@ -90,7 +90,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Management</a></li>
+            <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student Registration</a></li>
           </ul>
         </li>
 		
