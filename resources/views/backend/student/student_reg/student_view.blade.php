@@ -95,7 +95,7 @@
 								<th>Class</th>
 								<th>Image</th>
 								@if(Auth::user()->role=="Admin")
-								<th>Year</th>
+								<th>code</th>
 								@endif
 								<th width="25%">Action</th>
 								
@@ -115,11 +115,11 @@
 								<td>
 									 <img id="" src="{{ (!empty($value['student']['image'])?url('upload/student_images/'.$value['student']['image']):url('upload/no_img.jpg')) }}" alt="Admin" class="p-1 bg-info" height="50" width="50">
 								</td>
-								<td>{{ $value['student_class']['name'] }}</td>
+								<td>{{ $value['student']['code'] }}</td>
 								
 								<td>
                                     <a href="{{ route('student.registration.edit',$value->student_id) }}" class="btn btn-info">Edit</a>
-                                    <a href="{{ route('delete.student.year',$value->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                    <a href="{{ route('student.registration.promotion',$value->student_id) }}" class="btn btn-danger" id="delete">Promotion</a>
                                 </td>
 								
 							</tr> 
