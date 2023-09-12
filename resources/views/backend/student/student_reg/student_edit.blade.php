@@ -10,15 +10,16 @@
 		 <!-- Basic Forms -->
 		  <div class="box">
 			<div class="box-header with-border">
-			  <h4 class="box-title">Add Student</h4>
+			  <h4 class="box-title">Edit Student</h4>
 			 
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-					<form method="post" action="{{ route('student.registration.store') }}" enctype="multipart/form-data">
+					<form method="post" action="{{ route('student.registration.update',$editData->student_id) }}" enctype="multipart/form-data">
 						@csrf
+                        <input type="hidden" name="id" value="{{ $editData->id }}">
 					  <div class="row">
 						<div class="col-12">
 
@@ -29,10 +30,7 @@
                                     <div class="form-group">
                                         <h5>Student Name <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="text" name="name" class="form-control" required="" >
-                                    @error('name')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                        <input type="text" name="name" class="form-control" value="{{ $editData['student']['name'] }}" required="" >                                 
                                     </div>
 							        </div>						
                                 </div>
@@ -40,7 +38,7 @@
                                     <div class="form-group">
                                         <h5>Student Father's Name <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="text" name="fname" class="form-control" required="" >
+                                        <input type="text" name="fname" class="form-control" value="{{ $editData['student']['fname'] }}" required="" >
                                     </div>
 							        </div>						
                                 </div>
@@ -48,7 +46,7 @@
                                     <div class="form-group">
                                         <h5>Student Mother's Name <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="text" name="mname" class="form-control" required="" >                                  
+                                        <input type="text" name="mname" class="form-control" value="{{ $editData['student']['mname'] }}" required="" >                                  
                                     </div>
 							        </div>						
                                 </div>
@@ -60,7 +58,7 @@
                                     <div class="form-group">
                                         <h5>Phone Number <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="text" name="phone" class="form-control" required="" >
+                                        <input type="text" name="phone" value="{{ $editData['student']['mobile'] }}" class="form-control" required="" >
                                     
                                     </div>
 							        </div>						
@@ -69,7 +67,7 @@
                                     <div class="form-group">
                                         <h5>Address <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="text" name="address" class="form-control" required="" >                                 
+                                        <input type="text" name="address" class="form-control" value="{{ $editData['student']['address'] }}" required="" >                                 
                                     </div>
 							        </div>						
                                 </div>
@@ -79,8 +77,8 @@
                                         <div class="controls">
                                             <select name="gender" id="gender" required="" class="form-control">
                                                 <option value="" selected disabled>Select gender</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
+                                                <option value="Male" {{ ($editData['student']['gender']=='Male')?"selected":"" }}>Male</option>
+                                                <option value="Female" {{ ($editData['student']['gender']=='Female')?"selected":"" }}>Female</option>
 										
 									        </select>
                                     </div>
@@ -96,9 +94,9 @@
                                         <div class="controls">
                                         <select name="religion" id="religion" required="" class="form-control">
                                                 <option value="" selected disabled>Select religion</option>
-                                                <option value="Muslim">Muslim</option>
-                                                <option value="Hindu">Hindu</option>
-                                                <option value="Chirstan">Chirstan</option>
+                                                <option value="Muslim" {{ ($editData['student']['religion']=='Muslim')?"selected":"" }}>Muslim</option>
+                                                <option value="Hindu" {{ ($editData['student']['religion']=='Hindu')?"selected":"" }}>Hindu</option>
+                                                <option value="Chirstan" {{ ($editData['student']['religion']=='Chirstan')?"selected":"" }}>Chirstan</option>
 										
 									        </select>
                                     
@@ -109,7 +107,7 @@
                                     <div class="form-group">
                                         <h5>Date of Birth <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                        <input type="date" name="dob" class="form-control" required="" >                                 
+                                        <input type="date" name="dob" value="{{ $editData['student']['dob'] }}" class="form-control" required="" >                                 
                                     </div>
 							        </div>						
                                 </div>
@@ -117,7 +115,7 @@
                                     <div class="form-group">
                                         <h5>Discount <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="text" name="discount" class="form-control" required="" > 
+                                            <input type="text" name="discount" class="form-control" value="{{ $editData['discount']['discount'] }}" required="" > 
                                         </div>
 							        </div>						
                                 </div>
@@ -132,7 +130,7 @@
                                         <select name="year_id" id="year" required="" class="form-control">
                                                 <option value="" selected disabled>Select Year</option>
                                                 @foreach($years as $year)
-                                                <option value="{{ $year->id }}">{{ $year->name }}</option>
+                                                <option value="{{ $year->id }}" {{ ($editData->year_id==$year->id)?"selected":"" }}>{{ $year->name }}</option>
                                                 @endforeach
 										
 									        </select>
@@ -147,7 +145,7 @@
                                             <select name="class_id" id="class" required="" class="form-control">
                                                 <option value="" selected disabled>Select Class</option>
                                                 @foreach($classes as $class)
-                                                <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                                <option value="{{ $class->id }}" {{ ($editData->class_id==$class->id)?"selected":"" }}>{{ $class->name }}</option>
                                                 @endforeach
 									        </select>                                 
                                     </div>
@@ -160,7 +158,7 @@
                                             <select name="group_id" required="" class="form-control">
                                                 <option value="" selected disabled>Select Group</option>
                                                 @foreach($groups as $group)
-                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                                <option value="{{ $group->id }}" {{ ($editData->group_id==$group->id)?"selected":"" }}>{{ $group->name }}</option>
                                                 @endforeach
 									        </select> 
                                         </div>
@@ -177,7 +175,7 @@
                                         <select name="shift_id" required="" class="form-control">
                                                 <option value="" selected disabled>Select Year</option>
                                                 @foreach($shifts as $shift)
-                                                <option value="{{ $shift->id }}">{{ $shift->name }}</option>
+                                                <option value="{{ $shift->id }}" {{ ($editData->shift_id==$shift->id)?"selected":"" }}>{{ $shift->name }}</option>
                                                 @endforeach
 										
 									        </select>
@@ -197,7 +195,7 @@
                                     <div class="form-group">
                                         
                                         <div class="controls">
-									    <img id="showImage" src="{{ (!empty($editData->image)?url('upload/user_images/'.$editData->image):url('upload/no_img.jpg')) }}" alt="Admin" class="p-1 bg-info" height="100" width="110">							
+									    <img id="showImage" src="{{ (!empty($editData['student']['image'])?url('upload/student_images/'.$editData['student']['image']):url('upload/no_img.jpg')) }}" alt="Admin" class="p-1 bg-info" height="100" width="110">							
 							        </div>
 							
                                 </div>					
@@ -218,7 +216,7 @@
 						
 						
 						<div class="text-xs-right">
-							<input type="submit" class="btn btn-info mb-5" value="Submit">
+							<input type="submit" class="btn btn-info mb-5" value="Update">
 						</div>
 					</form>
 
