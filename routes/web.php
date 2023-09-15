@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -18,7 +19,7 @@ use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRegController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\UserController;
-
+use App\Models\EmployeeSalaryLog;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -194,4 +195,16 @@ Route::prefix('students')->group(function(){
      Route::get('/exam/fee/payslip',[ExamFeeController::class,'ExamFeePayslip'])->name('student.exam.fee.payslip');
 });
 
+//Employ Management
+Route::prefix('employees')->group(function(){
+    Route::get('/employee/reg/view',[EmployeeRegController::class,'EmpRegView'])->name('employee.registration.view');
+    Route::get('/employee/reg/add',[EmployeeRegController::class,'AddEmpReg'])->name('employee.registration.add');
+    Route::post('/employee/reg/store',[EmployeeRegController::class,'StoreEmpReg'])->name('employee.registration.store');
+    Route::get('/employee/reg/edit/{id}',[EmployeeRegController::class,'EditEmpReg'])->name('employee.registration.edit');
+    Route::post('/employee/reg/update/{id}',[EmployeeRegController::class,'UpdateEmpReg'])->name('employee.registration.update');
+    Route::get('/employee/reg/details/{id}',[EmployeeRegController::class,'DetailsEmpReg'])->name('employee.registration.details');
+    
+   
 });
+
+}); //end middleware auth route

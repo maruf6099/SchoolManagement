@@ -77,6 +77,7 @@ class StudentRegController extends Controller
             $user->id_no=$final_id_no;
             $user->password=bcrypt($code);
             $user->code=$code;
+            $user->usertype = 'Student';
             $user->name=$request->name;
             $user->fname=$request->fname;
             $user->mname=$request->mname;

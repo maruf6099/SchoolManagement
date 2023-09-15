@@ -97,6 +97,19 @@
             <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Exam Fee</a></li>
           </ul>
         </li>
+
+        <li class="treeview {{ ($prefix=='/employees')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Employee Managrment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('employee.registration.view') }}"><i class="ti-more"></i>Employee Registration</a></li>
+            
+          </ul>
+        </li>
 		
         		  
 		 
