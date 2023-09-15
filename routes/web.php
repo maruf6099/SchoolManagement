@@ -48,6 +48,9 @@ Route::middleware([
 
 Route::get('/admin/logout',[AdminController::class,'Logout'])->name('admin.logout');
 
+Route::group(['middleware' => 'auth'],function () {
+    
+
 
 //User Management All Route
 
@@ -189,4 +192,6 @@ Route::prefix('students')->group(function(){
      Route::get('/exam/fee/view',[ExamFeeController::class,'ExamFeeView'])->name('exam.fee.view');
      Route::get('/exam/fee/classwise',[ExamFeeController::class,'GetExamFee'])->name('student.exam.fee.classwise.get');
      Route::get('/exam/fee/payslip',[ExamFeeController::class,'ExamFeePayslip'])->name('student.exam.fee.payslip');
+});
+
 });
