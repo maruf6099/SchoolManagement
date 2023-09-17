@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
@@ -220,6 +221,13 @@ Route::prefix('employees')->group(function(){
      Route::get('/employee/leave/edit/{id}',[EmployeeLeaveController::class,'EmpLeaveEdit'])->name('employee.leave.edit');
      Route::post('/employee/leave/update/{id}',[EmployeeLeaveController::class,'EmpLeaveUpdate'])->name('employee.leave.update');
      Route::get('/employee/leave/delete/{id}',[EmployeeLeaveController::class,'EmpLeaveDelete'])->name('employee.leave.delete');
+
+     //Employee Attendance
+     Route::get('/employee/attendance/view',[EmployeeAttendanceController::class,'EmpAttendanceView'])->name('employee.attendance.view');
+     Route::get('/employee/attendance/add',[EmployeeAttendanceController::class,'EmpAttendanceAdd'])->name('employee.attendance.add');
+     Route::post('/employee/attendance/store',[EmployeeAttendanceController::class,'EmpAttendanceStore'])->name('employee.attendance.store');
+     Route::get('/employee/attendance/edit/{date}',[EmployeeAttendanceController::class,'EmpAttendanceEdit'])->name('employee.attendance.edit');
+     Route::get('/employee/attendance/details/{date}',[EmployeeAttendanceController::class,'EmpAttendanceDetails'])->name('employee.attendance.details');
    
 });
 
