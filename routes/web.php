@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
+use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
@@ -228,6 +229,11 @@ Route::prefix('employees')->group(function(){
      Route::post('/employee/attendance/store',[EmployeeAttendanceController::class,'EmpAttendanceStore'])->name('employee.attendance.store');
      Route::get('/employee/attendance/edit/{date}',[EmployeeAttendanceController::class,'EmpAttendanceEdit'])->name('employee.attendance.edit');
      Route::get('/employee/attendance/details/{date}',[EmployeeAttendanceController::class,'EmpAttendanceDetails'])->name('employee.attendance.details');
+
+      //Employee monthly Salary
+     Route::get('/employee/salary/view',[MonthlySalaryController::class,'MonthlySalaryView'])->name('employee.salary.view');
+     Route::get('/employee/salary/get',[MonthlySalaryController::class,'MonthlySalaryGet'])->name('employee.monthly.salary.get');
+     Route::get('/employee/salary/payslip/{employee_id}',[MonthlySalaryController::class,'MonthlySalaryPayslip'])->name('employee.monthly.salary.payslip');
    
 });
 
