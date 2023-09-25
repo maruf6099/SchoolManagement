@@ -114,6 +114,20 @@
             
           </ul>
         </li>
+        <li class="treeview {{ ($prefix=='/marks')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Marks Managrment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('marks.entry.add') }}"><i class="ti-more"></i>Marks Entry</a></li>
+            <li><a href="{{ route('marks.entry.edit') }}"><i class="ti-more"></i>Marks Edit</a></li>
+            
+            
+          </ul>
+        </li>
 		
         		  
 		 
