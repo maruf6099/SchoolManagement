@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Account\StudentFeeController;
 use App\Http\Controllers\Backend\DefaultController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
@@ -263,5 +264,13 @@ Route::prefix('marks')->group(function(){
 
 Route::get('/marks/getsubject',[DefaultController::class,'GetSubject'])->name('marks.getsubject');
 Route::get('/student/marks/getsubject',[DefaultController::class,'GetStudent'])->name('student.marks.getstudents');
+
+//Account Management
+Route::prefix('accounts')->group(function(){
+    Route::get('/student/fee/view',[StudentFeeController::class,'StudentFeeView'])->name('student.fee.view');
+    Route::get('/student/fee/add',[StudentFeeController::class,'StudentFeeAdd'])->name('student.fee.add');
+    Route::get('/student/fee/getstudent',[StudentFeeController::class,'StudentFeeGetStudent'])->name('account.fee.getstudent');
+    Route::get('/student/fee/store',[StudentFeeController::class,'StudentFeeStore'])->name('student.fee.store');
+});
 
 }); //end middleware auth route
