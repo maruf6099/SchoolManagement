@@ -107,7 +107,7 @@
 
  	<script id="document-template" type="text/x-handlebars-template">
 
-        <form action="{{ route('account.fee.store') }}" method="post" >
+        <form action="{{ route('student.fee.store') }}" method="post" >
         @csrf
  	<table class="table table-bordered table-striped" style="width: 100%">
  	<thead>
