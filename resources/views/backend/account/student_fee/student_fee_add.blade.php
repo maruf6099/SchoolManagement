@@ -96,7 +96,7 @@
                                     <a id="search" name="" class="btn btn-rounded btn-dark mb-5">Search</a>
                                     						
                                 </div>
-                        </div>
+                       
                        
 
 
@@ -123,6 +123,7 @@
  	 	@{{/each}}
  	 </tbody>
  	</table>
+  <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Submit</button>
     </form>
     </script>
 
