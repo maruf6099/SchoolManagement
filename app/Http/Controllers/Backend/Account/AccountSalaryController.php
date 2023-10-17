@@ -65,8 +65,8 @@ class AccountSalaryController extends Controller
     	 	
     	 	$html[$key]['tdsource'] .='<td>'.'<input type="hidden" name="employee_id[]" 
 									value="'.$attend->employee_id.'">'.'<input type="checkbox" 
-									name="checkmanage[]" id="id{{$key}}" 
-									value="'.$key.'" '.$checked.' style="transform: scale(1.5);margin-left: 10px;"> <label for="id{{$key}}"> </label> '.'</td>'; 
+									name="checkmanage[]" id="'.$key.'" 
+									value="'.$key.'" '.$checked.' style="transform: scale(1.5);margin-left: 10px;"> <label for="'.$key.'"> </label> '.'</td>'; 
     	 	$html[$key]['tdsource'] .= '</td>';
 
     	 }  
