@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 use App\Http\Controllers\Backend\GradeController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Report\ProfitController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -287,5 +288,12 @@ Route::prefix('accounts')->group(function(){
     Route::get('/other/cost/edit/{id}',[OtherCostController::class,'OtherCostEdit'])->name('other.cost.edit');
     Route::post('/other/cost/update/{id}',[OtherCostController::class,'OtherCostUpdate'])->name('other.cost.update');
 });
+
+//Report Management
+Route::prefix('reports')->group(function(){
+    Route::get('/monthly/profit/view',[ProfitController::class,'MonthlyProfitView'])->name('monthly.profit.view');
+    Route::get('/report/profit/datewise',[ProfitController::class,'MonthlyProfitDateWise'])->name('report.profit.datewise.get');
+    Route::get('/report/profit/pdf',[ProfitController::class,'MonthlyProfitPdf'])->name('report.profit.pdf');
+    });
 
 }); //end middleware auth route
