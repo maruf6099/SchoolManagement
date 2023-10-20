@@ -204,11 +204,11 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
 <tr>
   <td width="50%"><strong>Letter Grade </strong></td>
   <td width="50%"> 
-    @if($count_fail > 0)
+    {{-- @if($count_fail > 0)
     F
     @else
     {{ $total_grade->grade_name }}
-    @endif
+    @endif --}}
   </td>
 </tr>
 <tr>
