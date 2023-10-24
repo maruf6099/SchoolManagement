@@ -46,6 +46,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::group(['middleware' => 'prevent-back-button'],function(){
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -319,3 +321,4 @@ Route::get('marksheet/generate/get', [MarkSheetController::class, 'MarkSheetGet'
     });
 
 }); //end middleware auth route
+}); //end prevent back middleware 
