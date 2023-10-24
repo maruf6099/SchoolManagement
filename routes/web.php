@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Report\AttendanceReportController;
 use App\Http\Controllers\Backend\Report\MarkSheetController;
 use App\Http\Controllers\Backend\Report\ProfitController;
+use App\Http\Controllers\Backend\Report\ResultReportController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
@@ -298,12 +299,19 @@ Route::prefix('reports')->group(function(){
     Route::get('/report/profit/pdf',[ProfitController::class,'MonthlyProfitPdf'])->name('report.profit.pdf');
 
     //MarkSheet Generator
-    Route::get('/mark/sheet/view',[MarkSheetController::class,'MarkSheetView'])->name('mark.sheet.view');
-    Route::get('/mark/sheet/get',[MarkSheetController::class,'MarkSheetGet'])->name('mark.sheet.get');
+    // Route::get('/mark/sheet/view',[MarkSheetController::class,'MarkSheetView'])->name('mark.sheet.view');
+    // Route::get('/mark/sheet/get',[MarkSheetController::class,'MarkSheetGet'])->name('mark.sheet.get');
+    Route::get('marksheet/generate/view', [MarkSheetController::class, 'MarkSheetView'])->name('marksheet.generate.view');
+
+Route::get('marksheet/generate/get', [MarkSheetController::class, 'MarkSheetGet'])->name('report.marksheet.get');
 
     //Attendance Generator
     Route::get('/attendance/report/view',[AttendanceReportController::class,'AttendanceReportView'])->name('attendance.report.view');
     Route::get('/attendance/report/get',[AttendanceReportController::class,'AttendanceReportGet'])->name('attendance.report.get');
+
+    //Student Result Report
+    Route::get('/student/result/view',[ResultReportController::class,'ResultView'])->name('student.result.view');
+    Route::get('/student/result/get',[ResultReportController::class,'ResultGet'])->name('report.student.result.get');
     });
 
 }); //end middleware auth route

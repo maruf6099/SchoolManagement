@@ -1,6 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="{{ asset('backend/others/jq.js') }}"></script>
 
  <div class="content-wrapper">
 	  <div class="container-full">
@@ -15,12 +16,12 @@
 <div class="col-12">
 <div class="box bb-3 border-warning">
 				  <div class="box-header">
-					<h4 class="box-title">Manage <strong>MarkSheet Generate</strong></h4>
+	 <h4 class="box-title">Manage <strong>Student Result Report</strong></h4>
 				  </div>
 
 				  <div class="box-body">
 				
- <form method="GET" action="{{ route('report.marksheet.get') }}" target="_blank">
+ <form method="GET" action="{{ route('report.student.result.get') }}" target="_blank">
 			@csrf
 			<div class="row">
 
@@ -84,24 +85,10 @@
 	  
  			</div> <!-- End Col md 3 --> 
 
+ 
 
 
- <div class="col-md-3">
-
- 		 <div class="form-group">
-		<h5>ID No <span class="text-danger">*</span></h5>
-		<div class="controls">
-	 <input type="text" name="id_no" class="form-control" required="" > 
-	  </div>		 
-	  </div>
-	  
- 			</div> <!-- End Col md 3 --> 			
-
-
-
-
-
- 			<div class="col-md-3"  >
+ 			<div class="col-md-3" style="padding-top: 25px;"  >
 
   <input type="submit" class="btn btn-rounded btn-primary" value="Search">
 

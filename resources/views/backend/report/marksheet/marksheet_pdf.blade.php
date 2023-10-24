@@ -1,123 +1,125 @@
 @extends('admin.admin_master')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="{{ asset('backend/others/jq.js') }}"></script>
-
-     <div class="content-wrapper">
+ <div class="content-wrapper">
 	  <div class="container-full">
 		<!-- Content Header (Page header) -->
-		<div class="content-header">
-			<div class="d-flex align-items-center">
-				<div class="mr-auto">
-					<h3 class="page-title">Data Tables</h3>
-					<div class="d-inline-block align-items-center">
-						<nav>
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Tables</li>
-								<li class="breadcrumb-item active" aria-current="page">Data Tables</li>
-							</ol>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
+		 
 
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
-			  
-			 
 
-			<div class="col-12">
-
-				<div class="box bb-3 border-warning">
+		
+<div class="col-12">
+<div class="box bb-3 border-warning">
 				  <div class="box-header">
 					<h4 class="box-title">Manage <strong>MarkSheet PDF View</strong></h4>
 				  </div>
 
-				  <div class="box-body" style="border: solid 1px;padding:10px;">
-					
-                    <div class="row">
-                        <div class="col-md-2 text-center" style="float: right;">
-                         <img src="{{ url('upload/school_logo.jpg') }}" style="width: 120px; height:120px;" alt=""></div>
-                        <div class="col-md-2 text-center">
-                           
-                        </div>
-                        <div class="col-md-4 text-center" style="float: left;">
-                            <h4><strong>Yoo Yoo School</strong></h4>
-                            <h6><strong>Kashmir Dhaka</strong></h6>
-                            <h5><strong><u><i>Academic transcript</i></u></strong></h5>
-                            <h6><strong>{{ $allMarks['0']['exam_type']['name'] }}</strong></h6>
-                        </div>
+	  <div class="box-body" style="border: solid 1px; padding: 10px;">
+		
 
-                        <div class="col-md-12">
-                            <hr style="border: solid 1px; width:100%; color:#ddd; margin-bottom:0px;">
-                            <p style="text-align: right;"><u><i>Print Date:</i>{{ date('d m Y') }}</u></p>
-                        </div>
 
-                    </div><!-- end row -->
+  <div class="row">  <!-- start 1st row -->
+  		<div style="float: right" class="col-md-2 text-center">
+   <img src="{{ url('upload/easyschool.png') }}" style="width: 120px; height: 100px;">			
+  		</div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <table border="1" style="border-color: #ffffff" width="100%" cellpadding="8" cellspacing="2">
-                            @php
-                                $assign_student=App\Models\AssignStudent::where('year_id',$allMarks['0']->year_id)
-                                                                        ->where('class_id',$allMarks['0']->class_id)->first();
+        <div class="col-md-2 text-center">
+  			
+  		</div>
 
-                               
-                            @endphp
-                        <tr>
-                            <td width="50%">Student Id</td>    
-                            <td width="50%">{{ $allMarks['0']['id_no'] }}</td>    
-                        </tr>
-                        <tr>
-                            <td width="50%">Student Roll</td>    
-                            <td width="50%">{{ $assign_student->roll }}</td>    
-                        </tr>
-                        <tr>
-                            <td width="50%">Student Id</td>    
-                            <td width="50%">{{ $allMarks['0']['id_no'] }}</td>    
-                        </tr>
-                        <tr>
-                            <td width="50%">Student Name</td>    
-                            <td width="50%">{{ $allMarks['0']['student']['name'] }}</td>    
-                        </tr>
-                        <tr>
-                            <td width="50%">Class</td>    
-                            <td width="50%">{{ $allMarks['0']['student_class']['name'] }}</td>    
-                        </tr>
-                        <tr>
-                            <td width="50%">Session</td>    
-                            <td width="50%">{{ $allMarks['0']['year']['name'] }}</td>    
-                        </tr>
-                       
-                        </table>
-                        </div>
-                        <div class="col-md-6">
-                             <table border="1" style="border-color: #ffffff" width="100%" cellpadding="8" cellspacing="2">
-                                <thead>
-                                    <tr>
-                                        <th>Latter Grade</th>
-                                        <th>Marks Interval</th>
-                                        <th>Grade Point</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($allGrades as $mark)
-                                        <tr>
-                                            <td>{{ $mark->grade_name }}</td>
-                                            <td>{{ $mark->start_marks }}-{{ $mark->end_marks }}</td>
-                                            <td>{{ number_format((float)$mark->grade_point,2) }} - {{ ($mark->grade_point == 5)?(number_format((float)$mark->grade_point,2)):(number_format((float)$mark->grade_point+1,2) - (float)0.01) }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                             </table>
-                        </div>
-                        
-                    </div><!-- end row -->
+  		<div class="col-md-4 text-center" style="float: left;">
+  			<h4><strong>Easy Learning School</strong></h4>
+  			<h6><strong>Kolkata India</strong></h6>
+  			<h5><strong><u><i>Academic Transcript</i></u></strong></h5>
+  			<h6><strong>{{ $allMarks['0']['exam_type']['name'] }}</strong></h6>
+  			
+  		</div>
 
-                    {{-- =============================== Start Marksheet  ==================== ==================== --}}
+  		<div class="col-md-12">
+  <hr style="border: solid 1px; width: 100%; color: #ddd; margin-bottom: 0px;">
+  <p style="text-align: right;"><u><i>Print Date: </i>{{ date('d M Y') }} </u></p>
+  			
+  		</div>
+
+
+  </div> <!--  end 1st row -->
+
+
+
+	<div class="row"> <!-- start 2nd row -->
+
+		<div class="col-md-6">
+		
+
+ <table border="1" style="border-color: #ffffff;" width="100%" cellpadding="8" cellspacing="2">
+@php
+	$assign_student = App\Models\AssignStudent::where('year_id',$allMarks['0']->year_id)->where('class_id',$allMarks['0']->class_id)->first();
+@endphp
+
+<tr>
+	<td width="50%">Student Id</td>
+	<td width="50%">{{ $allMarks['0']['id_no'] }}</td>
+</tr>
+
+<tr>
+	<td width="50%">Roll No</td>
+	<td width="50%">{{ $assign_student->roll }}</td>
+</tr>
+
+<tr>
+	<td width="50%">Name </td>
+	<td width="50%">{{ $allMarks['0']['student']['name'] }}</td>
+</tr>
+
+
+<tr>
+	<td width="50%">Class</td>
+	<td width="50%">{{ $allMarks['0']['student_class']['name'] }}</td>
+</tr>
+
+
+<tr>
+	<td width="50%">Session</td>
+	<td width="50%">{{ $allMarks['0']['year']['name'] }}</td>
+</tr>
+			
+		</table>
+ 	
+		</div> <!-- // end col md 6 -->
+
+
+<div class="col-md-6">
+
+
+	<table border="1" style="border-color: #ffffff;" width="100%" cellpadding="8" cellspacing="2">
+		<thead>
+			<tr>
+				<th> Letter Grade </th>
+				<th> Marks Interval </th>
+				<th> Grade Point </th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($allGrades as $mark)
+			<tr>
+<td>{{ $mark->grade_name }}</td>
+<td>{{ $mark->start_marks }} - {{ $mark->end_marks }}</td>
+<td>{{ number_format((float)$mark->grade_point,2) }} - {{ ($mark->grade_point == 5)?(number_format((float)$mark->grade_point,2)):(number_format((float)$mark->grade_point+1,2) - (float)0.01) }}</td>
+</tr> 
+			@endforeach
+		</tbody> 
+
+</table>
+
+</div> <!-- // end col md 6 -->
+		
+	</div> <!--  end 2nd row -->
+
+
 <br><br>
       <div class="row"> <!-- 3td row start -->
         <div class="col-md-12">
@@ -204,11 +206,11 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
 <tr>
   <td width="50%"><strong>Letter Grade </strong></td>
   <td width="50%"> 
-    {{-- @if($count_fail > 0)
+    @if($count_fail > 0)
     F
     @else
     {{ $total_grade->grade_name }}
-    @endif --}}
+    @endif
   </td>
 </tr>
 <tr>
@@ -230,11 +232,11 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
  <tbody>
     <tr>
       <td style="text-align: left;"><strong>Remrks:</strong>
-        {{-- @if($count_fail > 0)
+        @if($count_fail > 0)
         Fail
         @else
         {{ $total_grade->remarks }}
-        @endif --}}
+        @endif
       </td>
     </tr>
   
@@ -266,18 +268,17 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
 
 
 <br><br>
- 
 
-{{-- ========================== End Marksheet =================== --}}
-					
-				  </div>
-				</div>
 
-			
-			  <!-- /.box -->
 
-			  
-			  <!-- /.box -->          
+
+
+
+
+
+
+
+<!-- 	------------------------------------------------		 -->       
 			</div>
 			<!-- /.col -->
 		  </div>
@@ -288,6 +289,9 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
 	  </div>
   </div>
 
+ 
+
+ 
 
 
 @endsection
