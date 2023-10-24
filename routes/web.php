@@ -312,6 +312,10 @@ Route::get('marksheet/generate/get', [MarkSheetController::class, 'MarkSheetGet'
     //Student Result Report
     Route::get('/student/result/view',[ResultReportController::class,'ResultView'])->name('student.result.view');
     Route::get('/student/result/get',[ResultReportController::class,'ResultGet'])->name('report.student.result.get');
+
+    //Student Id Card
+    Route::get('/student/idcard/view',[ResultReportController::class,'IdCardView'])->name('student.idcard.view');
+    Route::get('/student/idcard/get',[ResultReportController::class,'IdCardGet'])->name('report.student.idcard.get');
     });
 
 }); //end middleware auth route
